@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="false" name="Suite">
+    <listeners>
+        <listener class-name="Listeners"></listener>
+    </listeners>
+
+    <test thread-count="1" name="error validation" preserve-order="true">
+        <classes>
+            <class name="ErrorValidationTest"/>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="order" preserve-order="true">
+        <classes>
+            <class name="PageObjRefactorTest"/>
+        </classes>
+    </test>
+
+</suite>
