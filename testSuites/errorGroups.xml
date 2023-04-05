@@ -10,7 +10,7 @@
     </groups>
 
     <listeners>
-        <listener class-name="Listeners"></listener>
+        <listener class-name="utils.Listeners"></listener>
     </listeners>
 
     <test thread-count="1" name="error validation" preserve-order="true">

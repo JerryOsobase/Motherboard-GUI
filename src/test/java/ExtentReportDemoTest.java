@@ -3,10 +3,11 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.LandingPage;
+import utils.BrowserManager;
 
 import java.io.IOException;
 
-public class ExtentReportDemoTest extends Base{
+public class ExtentReportDemoTest extends BrowserManager {
 
     LandingPage landingPage;
     ExtentReports extentReport;

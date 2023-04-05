@@ -2,14 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite parallel="false" name="Suite">
     <listeners>
-        <listener class-name="Listeners"></listener>
+        <listener class-name="utils.Listeners"></listener>
     </listeners>
 
-    <test thread-count="1" name="error validation" preserve-order="true">
+    <!--<test thread-count="1" name="error validation" preserve-order="true">
         <classes>
             <class name="ErrorValidationTest"/>
         </classes>
-    </test>
+    </test>-->
 
     <test thread-count="1" name="order" preserve-order="true">
         <classes>

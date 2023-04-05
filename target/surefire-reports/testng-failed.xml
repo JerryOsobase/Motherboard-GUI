@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <listeners>
     <listener class-name="Listeners"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="error validation(failed)" verbose="0">
-    <groups>
-      <run>
-        <include name="errorHandling"/>
-      </run>
-    </groups>
+  <test thread-count="5" name="order(failed)" verbose="0">
     <classes>
-      <class name="ErrorValidationTest">
+      <class name="PageObjRefactorTest">
         <methods>
           <include name="terminate"/>
-          <include name="errorLogin"/>
+          <include name="intro" invocation-numbers="1"/>
           <include name="launchBrowser"/>
         </methods>
-      </class> <!-- ErrorValidationTest -->
+      </class> <!-- PageObjRefactorTest -->
     </classes>
-  </test> <!-- error validation(failed) -->
+  </test> <!-- order(failed) -->
 </suite> <!-- Failed suite [Suite] -->

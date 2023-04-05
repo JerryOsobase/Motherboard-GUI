@@ -1,28 +1,24 @@
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.OrderItem;
 import pages.ProductCatalogue;
+import utils.BrowserManager;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PageObjRefactorTest extends Base{
+public class PageObjRefactorTest extends BrowserManager {
 
     @Test(dataProvider = "getJsonData")
     public void intro(HashMap<String, String> data) throws IOException {
         OrderItem orderItem = new OrderItem(driver);
-        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+        ProductCatalogue productCatalogue = landingPage.setLogin(data.get("email"), data.get("password"));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
-        //String item = "adidas original";
-        landingPage.setLogin(data.get("email"), data.get("password"));
+
         productCatalogue.selectItem(data.get("productName"));
         productCatalogue.getCartButton();
         Boolean match = orderItem.getCartItems(data.get("productName"));

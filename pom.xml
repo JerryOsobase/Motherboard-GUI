@@ -34,12 +34,6 @@
             <scope>test</scope>
 
         </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -71,7 +65,33 @@
             <version>5.0.9</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.11.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.11.2</version>
+        </dependency>
+
     </dependencies>
+
+
 
     <profiles>
         <profile>
@@ -121,26 +141,32 @@
             </build>
         </profile>
 
+        <profile>
+            <id>cucumberTest</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.0.0</version>
+                            <configuration>
+                                <includes>**/testRunner.java</includes>
+                            </configuration>
+                        </plugin>
+
+                    </plugins>
+
+                </pluginManagement>
+            </build>
+        </profile>
+
+
+
     </profiles>
 
     <build>
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0</version>
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                    </configuration>
-                </plugin>
-
-            </plugins>
-
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

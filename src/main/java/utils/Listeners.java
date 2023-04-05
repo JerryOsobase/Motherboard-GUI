@@ -1,3 +1,5 @@
+package utils;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -5,9 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utils.ExtentReportNg;
+
 import java.io.IOException;
 
-public class Listeners extends Base implements ITestListener {
+public class Listeners extends BrowserManager implements ITestListener {
     ExtentReports ext = ExtentReportNg.config();
     ExtentTest test;
     ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); //Parallel test
