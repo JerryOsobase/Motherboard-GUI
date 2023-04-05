@@ -50,7 +50,7 @@ public class mySteps extends BrowserManager {
     public void user_can_view_success_message(String message){
         String confirmationMessage = orderItem.completeOrder();
         Assert.assertEquals(confirmationMessage, message);
-        //driver.close();
+        driver.close();
     }
 
 }
