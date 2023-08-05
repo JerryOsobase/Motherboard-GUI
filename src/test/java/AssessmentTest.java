@@ -20,7 +20,7 @@ public class AssessmentTest extends BrowserManager {
     @Parameters({"email", "password"})
     public void Facebook(String email, String password){
         profilePage = landingPage.setLogin(email, password);
-        String postMessage = "I Kill Bugss";
+        String postMessage = "I Kill Bugs";
         String confirmPost = profilePage.MakeAPost(postMessage);
         Assert.assertEquals(confirmPost, postMessage);
     }
