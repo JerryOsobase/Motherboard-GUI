@@ -4,16 +4,13 @@
     <listeners>
         <listener class-name="utils.Listeners"></listener>
     </listeners>
-
-    <!--<test thread-count="1" name="error validation" preserve-order="true">
-        <classes>
-            <class name="ErrorValidationTest"/>
-        </classes>
-    </test>-->
+    <parameter name="url" value="https://web.facebook.com/"></parameter>
+    <parameter name="email" value=""></parameter>
+    <parameter name="password" value=""></parameter>
 
     <test thread-count="1" name="order" preserve-order="true">
         <classes>
-            <class name="PageObjRefactorTest"/>
+            <class name="AssessmentTest" />
         </classes>
     </test>
 

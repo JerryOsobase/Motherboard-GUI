@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
 
 public class LandingPage extends AbstractComponents {
     WebDriver driver;
@@ -14,34 +15,26 @@ public class LandingPage extends AbstractComponents {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "userEmail")
-    WebElement emailField;
+    @FindBy(id = "email")
+    private WebElement emailField;
 
-    @FindBy(id = "userPassword")
-    WebElement passwordField;
+    @FindBy(id = "pass")
+    private WebElement passwordField;
 
-    @FindBy(id = "login")
-    WebElement login;
-
-    @FindBy(css = "[class*='flyInOut']")
-    WebElement errorMessage;
+    @FindBy(name = "login")
+    private WebElement loginButton;
 
 
-    public ProductCatalogue setLogin(String email, String password){
+    public ProfilePage setLogin(String email, String password){
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
-        login.click();
-        return new ProductCatalogue(driver);
+        loginButton.click();
+        return new ProfilePage(driver);
     }
 
-    public String getErrorMessage(){
-        visibilityOf(errorMessage);
-       return errorMessage.getText();
-    }
+    public void getUrl(String url){
 
-    public void getUrl(){
-
-        driver.get("https://rahulshettyacademy.com/client");
+        driver.get(url);
     }
 
 

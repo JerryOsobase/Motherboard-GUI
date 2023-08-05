@@ -11,8 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import pages.LandingPage;
 
 import java.io.File;
@@ -63,28 +62,18 @@ public class BrowserManager {
         return driver;
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public LandingPage launchBrowser() throws IOException {
+    @BeforeClass(alwaysRun = true)
+    @Parameters({"url"})
+    public LandingPage launchBrowser(String url) throws IOException {
         initializeDriver();
         landingPage = new LandingPage(driver);
-        landingPage.getUrl();
+        landingPage.getUrl(url);
         return landingPage;
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void terminate(){
         driver.close();
-    }
-
-    public List<HashMap<String, String>> getJsonToMap(String filePath) throws IOException {
-
-        //read json to string
-        String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir") + filePath), StandardCharsets.UTF_8);
-
-        //convert string to hashmap
-        ObjectMapper objectMapper =  new ObjectMapper();
-        List<HashMap<String, String>> data = objectMapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>(){});
-        return data;
     }
 
     public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
