@@ -1,6 +1,6 @@
 # Motherboard-GUI
 
-# clone repo into your system by: git clone https://github.com/JerryOsobase/waficash-selenium.git
+# clone repo into your system by: git clone https://github.com/JerryOsobase/Motherboard-GUI.git
 
 # Open file with eclipse/intelliJ
 
